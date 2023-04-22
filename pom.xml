@@ -12,7 +12,7 @@
     <artifactId>api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>BookstoreAPI</name>
-    <description>BookstoreAPI</description>
+    <description>Spring API for book storage application</description>
     <properties>
         <java.version>17</java.version>
     </properties>
