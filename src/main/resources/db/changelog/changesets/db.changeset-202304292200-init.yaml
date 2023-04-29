@@ -21,6 +21,8 @@ databaseChangeLog:
               - column:
                   name: format
                   type: text
+                  constraints:
+                    nullable: true
               - column:
                   name: size
                   type: bigint

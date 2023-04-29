@@ -1,0 +1,96 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_book_format_table
+      author: w1ldy0uth
+      changes:
+        - createTable:
+            tableName: book_format
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: format
+                  type: text
+                  constraints:
+                    unique: true
+  - changeSet:
+      id: insert_book_formats
+      author: w1ldy0uth
+      changes:
+        - insert:
+            tableName: book_format
+            columns:
+              - column:
+                  name: format
+                  value: pdf
+              - column:
+                  name: format
+                  value: fb2
+              - column:
+                  name: format
+                  value: epub
+              - column:
+                  name: format
+                  value: djvu
+              - column:
+                  name: format
+                  value: mobi
+              - column:
+                  name: format
+                  value: txt
+              - column:
+                  name: format
+                  value: doc
+              - column:
+                  name: format
+                  value: docx
+              - column:
+                  name: format
+                  value: cbr
+              - column:
+                  name: format
+                  value: txt
+  - changeSet:
+      id: add_format_id_to_books_table
+      author: w1ldy0uth
+      changes:
+        - addColumn:
+            tableName: books
+            columns:
+              - column:
+                  name: format_id
+                  type: bigint
+  - changeSet:
+      id: add_foreign_key_to_books_table
+      author: w1ldy0uth
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: format
+            baseTableName: books
+            baseColumnNames: format_id
+            referencedTableName: book_format
+            referencedColumnNames: id
+  - changeSet:
+      id: migrate_format_data_to_format_id
+      author: w1ldy0uth
+      changes:
+        - update:
+            tableName: books
+            columns:
+              - column:
+                  name: format_id
+                  valueComputed: "(SELECT id FROM book_format WHERE format = format)"
+              - column:
+                  name: format
+                  value: null
+  - changeSet:
+      id: remove_old_format_column_from_books_table
+      author: w1ldy0uth
+      changes:
+        - dropColumn:
+            tableName: books
+            columnName: format
