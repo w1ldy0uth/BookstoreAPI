@@ -1,26 +1,3 @@
 databaseChangeLog:
-  - changeSet:
-      id: 1
-      author: w1ldy0uth
-      changes:
-        - createTable:
-            tableName: books
-            columns:
-              - column:
-                  name: id
-                  type: bigint
-                  autoIncrement: true
-                  constraints:
-                    primaryKey: true
-              - column:
-                  name: title
-                  type: text
-              - column:
-                  name: author
-                  type: text
-              - column:
-                  name: format
-                  type: text
-              - column:
-                  name: size
-                  type: bigint
+  - includeAll:
+      path: db/changelog/changesets/
