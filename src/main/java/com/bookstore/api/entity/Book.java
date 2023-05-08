@@ -15,9 +15,9 @@ public class Book {
 
     @Column(name = "author", nullable = false)
     private String author;
-
-    @Column(name = "format", nullable = false)
-    private String format;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "format_id")
+    private BookFormat format;
 
     @Column(name = "size", nullable = false)
     private Long size;
@@ -46,14 +46,13 @@ public class Book {
         this.author = author;
     }
 
-    public String getFormat() {
+    public BookFormat getFormat() {
         return format;
     }
 
-    public void setFormat(String format) {
+    public void setFormat(BookFormat format) {
         this.format = format;
     }
-
     public Long getSize() {
         return size;
     }

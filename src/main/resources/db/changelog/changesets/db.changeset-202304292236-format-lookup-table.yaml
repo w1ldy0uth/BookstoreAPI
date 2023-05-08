@@ -26,34 +26,55 @@ databaseChangeLog:
             columns:
               - column:
                   name: format
-                  value: pdf
+                  value: "pdf"
+        - insert:
+            tableName: book_format
+            columns:
               - column:
                   name: format
-                  value: fb2
+                  value: "fb2"
+        - insert:
+            tableName: book_format
+            columns:
               - column:
                   name: format
-                  value: epub
+                  value: "epub"
+        - insert:
+            tableName: book_format
+            columns:
               - column:
                   name: format
-                  value: djvu
+                  value: "djvu"
+        - insert:
+            tableName: book_format
+            columns:
               - column:
                   name: format
-                  value: mobi
+                  value: "mobi"
+        - insert:
+            tableName: book_format
+            columns:
               - column:
                   name: format
-                  value: txt
+                  value: "txt"
+        - insert:
+            tableName: book_format
+            columns:
               - column:
                   name: format
-                  value: doc
+                  value: "doc"
+        - insert:
+            tableName: book_format
+            columns:
               - column:
                   name: format
-                  value: docx
+                  value: "docx"
+        - insert:
+            tableName: book_format
+            columns:
               - column:
                   name: format
-                  value: cbr
-              - column:
-                  name: format
-                  value: txt
+                  value: "cbr"
   - changeSet:
       id: add_format_id_to_books_table
       author: w1ldy0uth
